@@ -1,0 +1,18 @@
+.SearchBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.SearchBar input {
+  margin-right: 10px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.SearchButton {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}

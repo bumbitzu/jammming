@@ -1,0 +1,27 @@
+.Playlist {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 20px;
+  width: 300px;
+  background-color: #f9f9f9;
+}
+
+.Playlist input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.Playlist-save {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #1db954;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.Playlist-save:hover {
+  background-color: #1ed760;
+}
