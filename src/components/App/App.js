@@ -11,16 +11,6 @@ function App()
   const [ playlistName, setPlaylistName ] = useState('My Playlist');
   const [ playlistTracks, setPlaylistTracks ] = useState([]);
   const [ searchResults, setSearchResults ] = useState([]);
-  const savePlaylistToSpotify = () =>
-  {
-    // Simulate saving the playlist to Spotify (replace with actual Spotify API call)
-    console.log('Saving playlist to Spotify:', playlistURIs);
-
-    // Reset the playlist and playlist URIs
-    setPlaylistName('New Playlist');
-    setPlaylistTracks([]);
-    setPlaylistURIs([]);
-  };
   const addTrack = (track) =>
   {
     if (!playlistTracks.some((playlistTrack) => playlistTrack.id === track.id))
@@ -48,6 +38,21 @@ function App()
     // Update the state with the search results
     setSearchResults(tracks);
   };
+  // Inside your main application component (e.g., App.js)
+  const saveToSpotify = async () =>
+  {
+    const userID = await Spotify.getUserID();
+    const playlistID = await Spotify.createPlaylist(userID, playlistName);
+    const trackURIs = playlistTracks.map((track) => track.uri);
+
+    // Add tracks to the new playlist
+    await Spotify.addTracksToPlaylist(userID, playlistID, trackURIs);
+
+    // Reset the custom playlist in your app
+    setPlaylistName('New Playlist');
+    setPlaylistTracks([]);
+  };
+
   return (
     <div className="App">
       <h1>My Jammming App</h1>
@@ -62,7 +67,7 @@ function App()
             playlistTracks={playlistTracks}
             onRemoveTrack={removeTrack}
             onNameChange={updatePlaylistName}
-            onSavePlaylist={savePlaylistToSpotify}
+            onSavePlaylist={saveToSpotify}
           />
         </div>
       </div>

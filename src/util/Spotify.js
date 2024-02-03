@@ -37,6 +37,92 @@ const Spotify = {
       console.error('Error searching for tracks:', error);
     }
   },
+   getUserID: async () =>
+  {
+    const accessToken = Spotify.getAccessToken();
+    const apiUrl = 'https://api.spotify.com/v1/me';
+    const headers = {
+      Authorization: `Bearer ${accessToken}`,
+    };
+
+    try
+    {
+      const response = await fetch(apiUrl, {
+        method: 'GET',
+        headers: headers,
+      });
+
+      if (response.ok)
+      {
+        const jsonResponse = await response.json();
+        return jsonResponse.id;
+      }
+    } catch (error)
+    {
+      console.error('Error fetching user ID:', error);
+    }
+  },
+  createPlaylist: async (userID, playlistName) =>
+  {
+    const accessToken = Spotify.getAccessToken();
+    const apiUrl = `https://api.spotify.com/v1/users/${userID}/playlists`;
+    const headers = {
+      Authorization: `Bearer ${accessToken}`,
+      'Content-Type': 'application/json',
+    };
+    const data = JSON.stringify({
+      name: playlistName,
+      description: 'Custom playlist created with Jammming',
+    });
+
+    try
+    {
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: headers,
+        body: data,
+      });
+
+      if (response.ok)
+      {
+        const jsonResponse = await response.json();
+        return jsonResponse.id; // The new playlist's ID
+      }
+    } catch (error)
+    {
+      console.error('Error creating playlist:', error);
+    }
+  },
+  addTracksToPlaylist: async (userID, playlistID, trackURIs) =>
+  {
+    const accessToken = Spotify.getAccessToken();
+    const apiUrl = `https://api.spotify.com/v1/users/${userID}/playlists/${playlistID}/tracks`;
+    const headers = {
+      Authorization: `Bearer ${accessToken}`,
+      'Content-Type': 'application/json',
+    };
+    const data = JSON.stringify({
+      uris: trackURIs,
+    });
+
+    try
+    {
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: headers,
+        body: data,
+      });
+
+      if (response.ok)
+      {
+        console.log('Tracks added to the playlist successfully');
+      }
+    } catch (error)
+    {
+      console.error('Error adding tracks to the playlist:', error);
+    }
+  },
+  
   
 };
 
