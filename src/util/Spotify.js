@@ -37,28 +37,7 @@ const Spotify = {
       console.error('Error searching for tracks:', error);
     }
   },
-  const getUserID = async () => {
-  const accessToken = Spotify.getAccessToken();
-  const apiUrl = 'https://api.spotify.com/v1/me';
-  const headers = {
-    Authorization: `Bearer ${accessToken}`,
-  };
-
-  try {
-    const response = await fetch(apiUrl, {
-      method: 'GET',
-      headers: headers,
-    });
-
-    if (response.ok) {
-      const jsonResponse = await response.json();
-      return jsonResponse.id;
-    }
-  } catch (error) {
-    console.error('Error fetching user ID:', error);
-  }
-};
-
+  
 };
 
 Spotify.getAccessToken = () =>
