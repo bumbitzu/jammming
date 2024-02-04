@@ -1,10 +1,10 @@
-# Jammming - Spotify Playlist Creator
+# Jammming 🎵
 
-![Jammming](https://bumbitzu.ro/projects/jammming/aaa.webp)
+<img src="https://bumbitzu.ro/projects/jammming/aaa.webp" width='200px' height='200px'/>
 
 Jammming is a web application that allows users to create and manage Spotify playlists effortlessly. With Jammming, you can search for your favorite songs, add them to a new or existing playlist, and then save that playlist to your Spotify account.
 
-## Table of Contents
+## Table of Contents 📋
 
 - [Features](#features)
 - [Getting Started](#getting-started)
@@ -14,7 +14,7 @@ Jammming is a web application that allows users to create and manage Spotify pla
 - [Built With](#built-with)
 - [License](#license)
 
-## Features
+## Features ✨
 
 - **Spotify Integration**: Jammming uses the Spotify API to authenticate users and access their Spotify account.
 
@@ -24,7 +24,7 @@ Jammming is a web application that allows users to create and manage Spotify pla
 
 - **Save to Spotify**: Once you're satisfied with your playlist, you can save it to your Spotify account.
 
-## Getting Started
+## Getting Started 🚀
 
 Follow these instructions to get a copy of Jammming up and running on your local machine for development and testing purposes.
 
@@ -76,7 +76,7 @@ npm start
 
 7. Jammming should now be running on `http://localhost:3000/` in your web browser.
 
-## Usage
+## Usage 📘
 
 1. Visit the Jammming website at `http://localhost:3000/`.
 
@@ -88,12 +88,13 @@ npm start
 
 5. Enjoy your custom playlist on Spotify!
 
-## Built With
+## Built With 🏗
 
 - [React](https://reactjs.org/) - A JavaScript library for building user interfaces.
 - [Spotify API](https://developer.spotify.com/documentation/web-api/) - Used for authentication and accessing user playlists.
 - [Create React App](https://reactjs.org/docs/create-a-new-react-app.html) - A toolchain for setting up a new React project quickly.
 
-## License
+## License 📄
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. 
+
