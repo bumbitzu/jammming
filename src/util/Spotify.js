@@ -1,7 +1,7 @@
 const Spotify = {
   // Add your Spotify API credentials here
   clientId: '8d8d1f45131544dfbef33a9a92330ecb',
-  redirectUri: 'http://localhost:3000/',
+  redirectUri: 'https://bumbitzu.ro/projects/jammming',
   search: async (term) =>
   {
     const accessToken = Spotify.getAccessToken();
