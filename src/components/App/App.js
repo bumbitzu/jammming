@@ -34,8 +34,10 @@ function App()
 
   const search = async (term) =>
   {
+    console.log(`Searching for: ${term}`); // Log pentru debugging
     const tracks = await Spotify.search(term);
     // Update the state with the search results
+    console.log(`Search results: ${tracks.length} tracks found`);
     setSearchResults(tracks);
   };
   // Inside your main application component (e.g., App.js)
@@ -55,21 +57,18 @@ function App()
 
   return (
     <div className="App">
-      <h1>My Jammming App</h1>
-      <div className="App-playlist">
-        <SearchBar onSearch={search} />
-        <div className="App-search-results">
-          <SearchResults searchResults={searchResults} onAddTrack={addTrack}/>
-        </div>
-        <div className="App-playlist">
-          <Playlist
-            playlistName={playlistName}
-            playlistTracks={playlistTracks}
-            onRemoveTrack={removeTrack}
-            onNameChange={updatePlaylistName}
-            onSavePlaylist={saveToSpotify}
-          />
-        </div>
+      <h1 style={{color:'white'}}>My Jammming App</h1>
+      <SearchBar onSearch={search} />
+      <div className="Results">
+        <SearchResults searchResults={searchResults} onAddTrack={addTrack} />
+        <div className='Vr'></div>
+        <Playlist
+          playlistName={playlistName}
+          playlistTracks={playlistTracks}
+          onRemoveTrack={removeTrack}
+          onNameChange={updatePlaylistName}
+          onSavePlaylist={saveToSpotify}
+        />
       </div>
     </div>
   );

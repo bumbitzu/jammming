@@ -6,17 +6,24 @@ function Playlist({ playlistName, playlistTracks, onRemoveTrack, onNameChange, o
 {
   return (
     <div className="Playlist">
-      <h2>
+      
+      <div className='Input'>
         <input
+
           type="text"
           value={playlistName}
           onChange={(e) => onNameChange(e.target.value)}
         />
-      </h2>
-      <TrackList tracks={playlistTracks} onRemoveTrack={onRemoveTrack} />
-      <button className="Playlist-save" onClick={onSavePlaylist}>
-        SAVE TO SPOTIFY
-      </button>
+      </div>
+      <div className='Playlist-container'>
+        
+        <TrackList tracks={playlistTracks} onRemoveTrack={onRemoveTrack} />
+        <div className='Button-container'>
+          <button className="Playlist-save" onClick={onSavePlaylist}>
+            SAVE TO SPOTIFY
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

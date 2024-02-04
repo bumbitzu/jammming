@@ -1,27 +1,24 @@
-.Playlist {
-  border: 1px solid #ccc;
-  padding: 20px;
-  margin: 20px;
-  width: 300px;
-  background-color: #f9f9f9;
-}
+.Playlist{
+  text-align: left;
 
-.Playlist input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
 }
-
-.Playlist-save {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  background-color: #1db954;
-  color: white;
-  border: none;
-  cursor: pointer;
+.Playlist h2{
+  text-align: center;
 }
-
-.Playlist-save:hover {
-  background-color: #1ed760;
+.Input{
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  margin: 0 auto;
+  height: 100px;
+}
+.Button-container{
+  width: fit-content;
+  margin: 0 auto;
+}
+.Input input{
+  font-size: 20px;
+  margin: 0;
+  border-radius: 5px;
+  padding: 5px;
 }

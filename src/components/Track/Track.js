@@ -5,11 +5,10 @@ function Track({name, artist, album})
 {
   return (
     <div className="Track">
-      <div className="Track-information">
+      <div className="Trac-information">
         <h3>{name}</h3>
         <p>{artist} | {album}</p>
       </div>
-      <button className="Track-action">+</button>
     </div>
   );
 }

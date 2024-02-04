@@ -1,7 +1,36 @@
-.SearchResults {
-  margin: 20px 0;
+.Tracklist{
+  text-align: left;
+  
 }
+.Track{
+  display: flex;
+  justify-content: space-between;
+  padding-left: 40px;
+  align-items: center;
+}
+.Track:nth-child(odd){
+  background-color: rgb(205, 252, 210);
+}
+.Track:nth-child(even){
+  background-color: rgb(239, 249, 240);
+}
+.Track-information{
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis;
+  width: 85%;
+  padding-right: 40px;
 
-.SearchResults h2 {
-  margin-bottom: 20px;
+}
+.Track-action{
+  font-size: 40px;
+  width: 52px;
+  height: 54px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  
+}
+.Track-action:hover{
+  color: rgb(17, 240, 155);
+  background-color: rgba(78, 255, 58, 0.156);
 }

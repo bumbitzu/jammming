@@ -5,16 +5,15 @@ function SearchResults({searchResults, onAddTrack})
 {
   return (
     <div className="SearchResults">
-      <h2>Results</h2>
+      <h2 style={{height:'60px', color:'white'}}>Results</h2>
       <div className="Tracklist">
         {searchResults.map((track) => (
           <div className="Track" key={track.id}>
             <div className="Track-information">
-              <h3>{track.name}</h3>
-              <p>{track.artist} | {track.album}</p>
+              <p><span style={{ fontWeight: 'bold' }}>{track.name}</span> | {track.artist} | {track.album}</p>
             </div>
             <button className="Track-action" onClick={() => onAddTrack(track)}>
-              + Add
+              +
             </button>
           </div>
         ))}
