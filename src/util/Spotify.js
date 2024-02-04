@@ -1,5 +1,5 @@
 const Spotify = {
-  // Add your Spotify API credentials here
+
   clientId: '8d8d1f45131544dfbef33a9a92330ecb',
   redirectUri: 'https://bumbitzu.ro/projects/jammming',
   search: async (term) =>
