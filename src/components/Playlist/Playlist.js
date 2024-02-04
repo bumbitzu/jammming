@@ -1,5 +1,7 @@
 import React from 'react';
 import TrackList from '../TrackList/TrackList';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSpotify } from '@fortawesome/free-brands-svg-icons';
 import './Playlist.css';
 
 function Playlist({ playlistName, playlistTracks, onRemoveTrack, onNameChange, onSavePlaylist })
@@ -20,7 +22,7 @@ function Playlist({ playlistName, playlistTracks, onRemoveTrack, onNameChange, o
         <TrackList tracks={playlistTracks} onRemoveTrack={onRemoveTrack} />
         <div className='Button-container'>
           <button className="Playlist-save" onClick={onSavePlaylist}>
-            SAVE TO SPOTIFY
+            Save to <FontAwesomeIcon icon={faSpotify} />
           </button>
         </div>
       </div>

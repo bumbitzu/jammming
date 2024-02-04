@@ -19,3 +19,9 @@ body{
   position: relative;
   top:100px
 }
+.By{
+  font-size: 12px;
+}
+.By a{
+  color: white;
+}

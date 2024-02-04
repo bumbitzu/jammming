@@ -1,4 +1,5 @@
-import React,{useState} from 'react';
+
+import React, { useState, useEffect } from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
@@ -11,18 +12,30 @@ function App()
   const [ playlistName, setPlaylistName ] = useState('My Playlist');
   const [ playlistTracks, setPlaylistTracks ] = useState([]);
   const [ searchResults, setSearchResults ] = useState([]);
+  const [ isTokenReady, setIsTokenReady ] = useState(false);
+
+  useEffect(() =>
+  {
+    // Call getAccessToken and update the state based on whether a token was successfully retrieved
+    const token = Spotify.getAccessToken();
+    if (token)
+    {
+      setIsTokenReady(true); // Update state to indicate token is ready
+    }
+  }, []);
+
   const addTrack = (track) =>
   {
     if (!playlistTracks.some((playlistTrack) => playlistTrack.id === track.id))
     {
       setPlaylistTracks([ ...playlistTracks, track ]);
-      setPlaylistURIs([ ...playlistURIs, track.uri ]); // Assuming track.uri is available in your data
+      setPlaylistURIs([ ...playlistURIs, track.uri ]);
     }
   };
 
   const removeTrack = (track) =>
   {
-    // Filter out the track with a unique property (e.g., track.id)
+    // Filter out the track with a unique property
     const updatedPlaylist = playlistTracks.filter((playlistTrack) => playlistTrack.id !== track.id);
     setPlaylistTracks(updatedPlaylist);
   };
@@ -34,9 +47,13 @@ function App()
 
   const search = async (term) =>
   {
-    console.log(`Searching for: ${term}`); // Log pentru debugging
+    if (!isTokenReady)
+    {
+      console.log('Token not ready. Cannot perform search.');
+      return; // Early return if token is not ready
+    }
+    console.log(`Searching for: ${term}`); // Log for debugging
     const tracks = await Spotify.search(term);
-    // Update the state with the search results
     console.log(`Search results: ${tracks.length} tracks found`);
     setSearchResults(tracks);
   };
@@ -57,7 +74,7 @@ function App()
 
   return (
     <div className="App">
-      <h1 style={{color:'white'}}>My Jammming App</h1>
+      <h1 style={{ color: 'white' }}>Jammming <span className='By'>by <a href="https://bumbitzu.ro">Bumbitzu</a></span></h1>
       <SearchBar onSearch={search} />
       <div className="Results">
         <SearchResults searchResults={searchResults} onAddTrack={addTrack} />
@@ -70,7 +87,7 @@ function App()
           onSavePlaylist={saveToSpotify}
         />
       </div>
-    </div>
+      </div>
   );
 }
 
